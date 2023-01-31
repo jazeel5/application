@@ -3,6 +3,7 @@ const express = require('express')
 const StudentRouter = require('./routes/crud')
 const TeacherRouter = require('./routes/teacher_route')
 const cors = require('cors')
+const path = require('path')
 
 connectToMongo();
 
