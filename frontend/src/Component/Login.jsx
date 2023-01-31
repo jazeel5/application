@@ -7,13 +7,13 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const host = "http://localhost:5001/"
+    // const host = "http://localhost:5001/"
 
     let navigate = useNavigate()
 
     const onSubmit = (e) => {
         e.preventDefault();
-        Axios.post(`${host}api/teacher/login`, { email: email, password: password })
+        Axios.post(`/api/teacher/login`, { email: email, password: password })
             .then((res) => {
                 console.log(res)
                 if (res.data.success == true) {
