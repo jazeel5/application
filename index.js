@@ -22,13 +22,24 @@ app.use('/api/teacher',TeacherRouter)
 // console.log(process.env)
 
 // if(process.env.NODE_ENV=='production'){
-  const path = require('path')
+//   const path = require('path')
 
-  app.get('*',(req,res)=>{
-    app.use(express.static(path.resolve(__dirname,'frontend','build')))
-    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
-  })
+//   app.get('/',(req,res)=>{
+//     app.use(express.static(path.resolve(__dirname,'frontend','build')))
+//     res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+//   })
 // }
+
+app.get ("*", function (_, res){
+  res.sendFile(
+    path.join(__dirname, "./frontend/build/index.html"),
+    function(err){
+      if(err){
+        res.status(500).send(err);
+      }
+    }
+  )
+})
 
 
 app.listen(port, () => {
