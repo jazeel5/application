@@ -11,8 +11,8 @@ const JWT_SECRET = "hello";  // to create token in browser
 
 const Register = async (req, res) => {
 
+    let teacher = await Teacher.findOne({ email: req.body.email });
     try {
-        let teacher = await Teacher.findOne({ email: req.body.email });
         if (teacher) {
             const success = false;
             return res.status(400).json({ success, errors: "email already exist" })
