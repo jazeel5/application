@@ -5,7 +5,7 @@ import Axios from 'axios';
 export const StudentContext = createContext();
 
 export default function Student(props) {
-  const host = "http://localhost:5001/"
+  // const host = "http://localhost:5001/"
 
   const [student, setStudent] = useState([]);
 
@@ -40,7 +40,7 @@ export default function Student(props) {
   //       }
 
   const GetStudent = () => {
-    Axios.get(`${host}api/student/get_students`)
+    Axios.get(`/api/student/get_students`)
       .then((res) => {
         console.log("Get All Student Response : " + JSON.stringify(res.data))
         setStudent(res.data)
@@ -56,7 +56,7 @@ export default function Student(props) {
   
 
   const DeleteStudent = (id) => {
-    Axios.delete(`${host}api/student/delete_student/${id}`)
+    Axios.delete(`/api/student/delete_student/${id}`)
       .then((res) => {
         console.log('Deleting student of id : ' + id)
         const newStudent = student.filter((student) => { return student._id !== id })
@@ -68,7 +68,7 @@ export default function Student(props) {
   }
 
   const CallSingleStudent = (id) => {
-    Axios.get(`${host}api/student/get_single_student/${id}`)
+    Axios.get(`/api/student/get_single_student/${id}`)
       .then((res) => {
         console.log("Single Student Response : " + JSON.stringify(res.data))
         setSstudent(res.data)
@@ -82,7 +82,7 @@ export default function Student(props) {
   }
 
   const UpdateStudent = (id, name, phone, email, address) => {
-    Axios.put(`${host}api/student/update_student/${id}`, { name, phone, email, address })
+    Axios.put(`/api/student/update_student/${id}`, { name, phone, email, address })
       .then((res) => {
         console.log("Update Response : " + JSON.stringify(res.data))
 
