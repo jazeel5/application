@@ -6,7 +6,7 @@ import {StudentContext} from '../Context/student';
 import Axios from 'axios';
 
 export default function Insert() {
-    const host = "http://localhost:5001/"
+    
     const [result, setResult] = useState("");
     const StudentCon = useContext(StudentContext)
     console.log(StudentCon)
@@ -39,7 +39,7 @@ export default function Insert() {
         //     console.log(error)
         // })
         
-        Axios.post(`${host}api/student/insert`,{name:name,phone:phone,email:email,address:address})
+        Axios.post(`/api/student/insert`,{name:name,phone:phone,email:email,address:address})
         .then((response)=>{
             console.log("Insert Response : "+response) 
             if (response.data.success==true){

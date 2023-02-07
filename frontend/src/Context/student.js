@@ -6,8 +6,8 @@ export const StudentContext = createContext();
 
 export default function Student(props) {
   // const host = "http://localhost:5001/"
-  
-  const host = "https://application-orcin.vercel.app/"
+
+  const host = "https://application-fuqlp99k0-jazeel5.vercel.app/"
 
   const [student, setStudent] = useState([]);
 
