@@ -13,7 +13,7 @@ export default function Login() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        Axios.post(`/api/teacher/login`, { email: email, password: password })
+        Axios.post(`api/teacher/login`, { email: email, password: password })
             .then((res) => {
                 console.log(res)
                 if (res.data.success == true) {
